@@ -133,11 +133,6 @@ ALTER TABLE [dbo].[Address] ADD  CONSTRAINT [DF_Address_Country]  DEFAULT (N'Õ€Õ
 GO
 
 
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[University](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -154,12 +149,6 @@ CREATE TABLE [dbo].[University](
 GO
 
 
-
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Student](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -185,11 +174,6 @@ ALTER TABLE [dbo].[Student] CHECK CONSTRAINT [FK_Student_University]
 GO
 
 
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE TABLE [dbo].[Teacher](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -207,17 +191,10 @@ CREATE TABLE [dbo].[Teacher](
 GO
 
 
-
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
 CREATE TABLE [dbo].[TeachersDetail](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[TeacherId] [int] NOT NULL,
-	[UniversityId] [int] NOT NULL,
+	[UniversityId] [int] NULL,
 	[StartDate] [date] NULL,
 	[EndDate] [date] NULL,
 	[Hour] [int] NULL,
@@ -246,12 +223,6 @@ ALTER TABLE [dbo].[TeachersDetail] CHECK CONSTRAINT [FK_TeachersDetail_Universit
 GO
 
 
-
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE VIEW [dbo].[TeacherView]
 AS
