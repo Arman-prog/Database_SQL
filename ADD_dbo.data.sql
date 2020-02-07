@@ -47,11 +47,11 @@ INSERT INTO [dbo].[Teacher] ([Id], [FirstName], [LastName], [PhoneNumber], [Emai
 SET IDENTITY_INSERT [dbo].[Teacher] OFF
 
 
-SET IDENTITY_INSERT [dbo].[TeachersDetail] ON
-INSERT INTO [dbo].[TeachersDetail] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (1, 2, 1, N'2018-02-25', NULL, 15)
-INSERT INTO [dbo].[TeachersDetail] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (2, 1, 5, N'2020-02-05', NULL, 10)
-INSERT INTO [dbo].[TeachersDetail] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (3, 1, 2, N'2019-10-20', NULL, NULL)
-INSERT INTO [dbo].[TeachersDetail] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (4, 3, 3, N'2020-02-05', NULL, 20)
-INSERT INTO [dbo].[TeachersDetail] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (5, 3, 2, N'2019-09-12', NULL, 15)
-INSERT INTO [dbo].[TeachersDetail] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (6, 4, 4, N'2019-10-12', NULL, 25)
-SET IDENTITY_INSERT [dbo].[TeachersDetail] OFF
+SET IDENTITY_INSERT [dbo].[Teacher_University] ON
+INSERT INTO [dbo].[Teacher_University] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (1, 2, 1, N'2018-02-25', NULL, 15)
+INSERT INTO [dbo].[Teacher_University] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (2, 1, 5, N'2020-02-05', NULL, 10)
+INSERT INTO [dbo].[Teacher_University] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (3, 1, 2, N'2019-10-20', NULL, NULL)
+INSERT INTO [dbo].[Teacher_University] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (4, 3, 3, N'2020-02-05', NULL, 20)
+INSERT INTO [dbo].[Teacher_University] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (5, 3, 2, N'2019-09-12', NULL, 15)
+INSERT INTO [dbo].[Teacher_University] ([Id], [TeacherId], [UniversityId], [StartDate], [EndDate], [Hour]) VALUES (6, 4, 4, N'2019-10-12', NULL, 25)
+SET IDENTITY_INSERT [dbo].[Teacher_University] OFF
