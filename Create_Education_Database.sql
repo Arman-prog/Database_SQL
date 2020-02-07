@@ -5,9 +5,9 @@ GO
 CREATE DATABASE [Education]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'Education', FILENAME = N'C:\Users\arami\Education.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'Education', FILENAME = N'Enter File Location\Education.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'Education_log', FILENAME = N'C:\Users\arami\Education_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+( NAME = N'Education_log', FILENAME = N'Enter File Location\Education_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
 
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
@@ -191,7 +191,7 @@ CREATE TABLE [dbo].[Teacher](
 GO
 
 
-CREATE TABLE [dbo].[TeachersDetail](
+CREATE TABLE [dbo].[Teacher_University](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[TeacherId] [int] NOT NULL,
 	[UniversityId] [int] NULL,
@@ -205,30 +205,30 @@ CREATE TABLE [dbo].[TeachersDetail](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[TeachersDetail] ADD  DEFAULT (getdate()) FOR [StartDate]
+ALTER TABLE [dbo].[Teacher_University] ADD  DEFAULT (getdate()) FOR [StartDate]
 GO
 
-ALTER TABLE [dbo].[TeachersDetail]  WITH CHECK ADD  CONSTRAINT [FK_TeachersDetail_Teacher] FOREIGN KEY([TeacherId])
+ALTER TABLE [dbo].[Teacher_University]  WITH CHECK ADD  CONSTRAINT [FK_Teacher_University_Teacher] FOREIGN KEY([TeacherId])
 REFERENCES [dbo].[Teacher] ([Id])
 GO
 
-ALTER TABLE [dbo].[TeachersDetail] CHECK CONSTRAINT [FK_TeachersDetail_Teacher]
+ALTER TABLE [dbo].[Teacher_University] CHECK CONSTRAINT [FK_Teacher_University_Teacher]
 GO
 
-ALTER TABLE [dbo].[TeachersDetail]  WITH CHECK ADD  CONSTRAINT [FK_TeachersDetail_University] FOREIGN KEY([UniversityId])
+ALTER TABLE [dbo].[Teacher_University]  WITH CHECK ADD  CONSTRAINT [FK_Teacher_University_University] FOREIGN KEY([UniversityId])
 REFERENCES [dbo].[University] ([Id])
 GO
 
-ALTER TABLE [dbo].[TeachersDetail] CHECK CONSTRAINT [FK_TeachersDetail_University]
+ALTER TABLE [dbo].[Teacher_University] CHECK CONSTRAINT [FK_Teacher_University_University]
 GO
 
 
 
 CREATE VIEW [dbo].[TeacherView]
 AS
-select T.FirstName,T.LastName, U.[Name] as University,A.City from TeachersDetail
-inner join Teacher as T on TeachersDetail.TeacherId=T.Id
-inner join University as U on TeachersDetail.UniversityId=U.Id
+select T.FirstName,T.LastName, U.[Name] as University,A.City from Teacher_University
+inner join Teacher as T on Teacher_University.TeacherId=T.Id
+inner join University as U on Teacher_University.UniversityId=U.Id
 inner join [Address] as A on U.AddressId=A.Id
 GO
 
