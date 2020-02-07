@@ -106,7 +106,7 @@ GO
 ALTER DATABASE [Education] SET  READ_WRITE 
 GO
 
-
+USE [Education]
 
 SET ANSI_NULLS ON
 GO
