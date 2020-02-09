@@ -119,7 +119,7 @@ CREATE TABLE [dbo].[Address](
 	[Country] [nvarchar](50) NULL,
 	[Region] [nvarchar](50) NOT NULL,
 	[City] [nvarchar](50) NOT NULL,
-	[Street\District] [nvarchar](50) NOT NULL,
+	[StreetOrDistrict] [nvarchar](50) NOT NULL,
 	[House] [nvarchar](10) NOT NULL,
 	[Apartment] [int] NULL,
  CONSTRAINT [PK_Address] PRIMARY KEY CLUSTERED 
